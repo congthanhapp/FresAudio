@@ -26,6 +26,7 @@
 
 - **Phát nhạc offline:** Hỗ trợ các định dạng âm thanh phổ biến như MP3, FLAC, WAV, AAC, M4A...
 - **Tải nhạc về máy:** Hỗ trợ tải bài hát từ YouTube, SoundCloud, Spotify và TikTok.
+- **Chỉnh EQ & Xem phổ nhạc:** Tích hợp bộ cân bằng âm thanh (Equalizer) và hiển thị dải phổ sóng âm trực quan.
 - **Quản lý danh sách phát:** Tạo playlist, lưu bài hát yêu thích và duyệt nhạc theo thư mục.
 
 ---
