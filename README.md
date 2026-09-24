@@ -17,7 +17,7 @@
 
 **FresAudio** là ứng dụng nghe nhạc cục bộ (offline) trên máy tính Windows, hỗ trợ tải nhạc từ **YouTube, SoundCloud, Spotify, TikTok** về máy để nghe lại thuận tiện.
 
-[Tính Năng](#-tính-năng-chính) • [Video Demo](#-video-demo) • [Tải Về](#-tải-về--cài-đặt) • [Miễn Trừ Trách Nhiệm](#-miễn-trừ-trách-nhiệm-disclaimer)
+[Tính Năng](#-tính-năng-chính) • [Tải Về](#-tải-về--cài-đặt) • [Miễn Trừ Trách Nhiệm](#-miễn-trừ-trách-nhiệm-disclaimer)
 
 </div>
 
