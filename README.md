@@ -8,7 +8,6 @@
   <a href="https://dotnet.microsoft.com/download/dotnet/8.0"><img src="https://img.shields.io/badge/.NET-8.0-512BD4?style=for-the-badge&logo=dotnet&logoColor=white" alt=".NET 8" /></a>
   <a href="https://www.microsoft.com/windows"><img src="https://img.shields.io/badge/Platform-Windows-0078D4?style=for-the-badge&logo=windows&logoColor=white" alt="Platform Windows" /></a>
   <a href="https://github.com/congthanhapp/FresAudio/releases"><img src="https://img.shields.io/badge/Download-FresAudio__Setup.exe-FF5722?style=for-the-badge&logo=windows-terminal&logoColor=white" alt="Download" /></a>
-  <a href="demo.mp4"><img src="https://img.shields.io/badge/▶️_Xem_Video_Demo-FresAudio-E91E63?style=for-the-badge&logo=youtube&logoColor=white" alt="Video Demo" /></a>
 </p>
 
 <img src="FresAudio.png" alt="FresAudio Logo" width="120" height="120" />
@@ -24,15 +23,6 @@
 ---
 
 ## 🎬 Video sử dụng
-
-<p align="center">
-  <video src="demo.mp4" controls="controls" width="100%"></video>
-</p>
-
-
-
-
-
 
 https://github.com/user-attachments/assets/5b589ae4-3e96-41b0-acb7-ec59277aae5a
 
