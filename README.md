@@ -1,8 +1,8 @@
 <div align="center">
 
-<img src="FresAudio.png" alt="FresAudio Logo" width="100" height="100" />
+<img src="FresAudio.png" alt="FresAudio Logo" width="96" height="96" />
 
-# FresAudio
+# 🎵 FresAudio
 
 Ứng dụng phát nhạc offline trên máy tính Windows, hỗ trợ tải nhạc từ YouTube, SoundCloud, Spotify và TikTok về máy.
 
