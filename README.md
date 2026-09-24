@@ -29,7 +29,9 @@
   <video src="demo.mp4" controls="controls" width="100%"></video>
 </p>
 
-> 🎥 **[▶️ Bấm vào đây để xem trực tiếp Video Demo FresAudio (1:14)](demo.mp4)**
+Uploading video .mp4…
+
+**
 
 ---
 
