@@ -2,119 +2,157 @@
 
 # 🎵 FresAudio
 
-**Trình phát & tải nhạc đa nền tảng hiện đại dành cho Windows**
+### Ứng dụng Nghe Nhạc & Tải Nhạc Đa Nền Tảng Chuyên Nghiệp Cho Windows
 
-[![.NET 8.0](https://img.shields.io/badge/.NET-8.0-purple.svg)](https://dotnet.microsoft.com/download/dotnet/8.0)
-[![Platform](https://img.shields.io/badge/Platform-Windows-blue.svg)](https://www.microsoft.com/windows)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+<p align="center">
+  <a href="https://dotnet.microsoft.com/download/dotnet/8.0"><img src="https://img.shields.io/badge/.NET-8.0_WPF-512BD4?style=for-the-badge&logo=dotnet&logoColor=white" alt=".NET 8" /></a>
+  <a href="https://www.microsoft.com/windows"><img src="https://img.shields.io/badge/Platform-Windows_10_|_11-0078D4?style=for-the-badge&logo=windows&logoColor=white" alt="Platform Windows" /></a>
+  <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-success?style=for-the-badge" alt="License MIT" /></a>
+  <a href="https://github.com/congthanhapp/FresAudio/releases"><img src="https://img.shields.io/badge/Download-FresAudio__Setup.exe-FF5722?style=for-the-badge&logo=windows-terminal&logoColor=white" alt="Download" /></a>
+</p>
 
-<br />
+<img src="FresAudio.png" alt="FresAudio Logo" width="130" height="130" style="border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.3);" />
 
-<img src="FresAudio.png" alt="FresAudio Logo" width="128" height="128" />
+<br/>
+
+**FresAudio** kết hợp sức mạnh xử lý âm thanh kỹ thuật số cao cấp cùng bộ công cụ tải nhạc trực tuyến thông minh từ **YouTube, SoundCloud, Spotify và TikTok** trong một giao diện Fluent / Material Design tuyệt đẹp.
+
+[Tính Năng](#-tính-năng-chính) • [Tải Về Cài Đặt](#-tải-về--cài-đặt-1-click) • [Phím Tắt](#-phím-tắt-tiện-lợi) • [Hướng Dẫn Build](#-hướng-dẫn-dành-cho-lập-trình-viên) • [Miễn Trừ Trách Nhiệm](#-tuyên-bố-từ-chối-trách-nhiệm-disclaimer)
 
 </div>
 
 ---
 
-## 🌟 Giới thiệu
+## 🌟 Tính Năng Chính
 
-**FresAudio** là một ứng dụng nghe nhạc và tải nhạc mạnh mẽ, được thiết kế với giao diện hiện đại phong cách Fluent / Material Design trên nền tảng **WPF (.NET 8)**. Ứng dụng mang đến trải nghiệm nghe nhạc offline mượt mà, bộ cân bằng âm thanh (Equalizer) chuẩn phòng thu, cùng khả năng tải nhạc trực tiếp từ các nền tảng phổ biến nhất hiện nay.
+<table>
+  <tr>
+    <td width="50%">
+      <h3>🎧 Trình Phát Âm Thanh Hi-Res</h3>
+      <ul>
+        <li>Hỗ trợ phát đa định dạng: <b>FLAC 24-bit, MP3, WAV, AAC, OGG, M4A...</b></li>
+        <li>Tự động đọc <b>Metadata ID3v2</b>, ảnh bìa album (Album Cover Art) sắc nét.</li>
+        <li>Quản lý danh sách phát (Playlist), tạo thư mục bài hát yêu thích không giới hạn.</li>
+        <li>Duyệt nhạc theo cấu trúc cây thư mục ổ đĩa cực nhanh.</li>
+      </ul>
+    </td>
+    <td width="50%">
+      <h3>🎚️ Studio Equalizer & Hiệu Ứng</h3>
+      <ul>
+        <li><b>10-Band Graphic Equalizer</b> chuẩn xác từ 31Hz đến 16kHz.</li>
+        <li>Các Preset chuyên nghiệp: <i>Bass Boost, Pop, Rock, Jazz, Classical, Vocal...</i></li>
+        <li>Công nghệ <b>SoundTouch</b>: Thay đổi tốc độ phát (Tempo) và cao độ (Pitch) mượt mà không vỡ tiếng.</li>
+        <li>Cửa sổ hiển thị sóng âm dải tần <b>Spectrogram Visualizer</b> theo thời gian thực.</li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%">
+      <h3>⬇️ Bộ Tải Nhạc Đa Nền Tảng</h3>
+      <ul>
+        <li>🔴 <b>YouTube:</b> Tải bài hát hoặc nguyên Playlist, tự động gắn thẻ ca sĩ/album.</li>
+        <li>🟠 <b>SoundCloud:</b> Tải nhanh các bản nhạc độc quyền, DJ Mix & Remix.</li>
+        <li>🟢 <b>Spotify:</b> Tìm kiếm và tải bài hát/playlist yêu thích về máy.</li>
+        <li>⚫ <b>TikTok:</b> Tách nhạc nền cực chuẩn từ video TikTok theo link.</li>
+      </ul>
+    </td>
+    <td width="50%">
+      <h3>🎨 Giao Diện & Tối Ưu Hệ Thống</h3>
+      <ul>
+        <li>Phong cách <b>Material Design</b> hiện đại, mượt mà và trực quan.</li>
+        <li>Đa dạng chủ đề: <i>Dark, Light, Ghost, Transparent Mica / Glassmorphism</i>.</li>
+        <li>Tự động liên kết đuôi file âm thanh (.mp3, .flac, .wav) mở trực tiếp bằng FresAudio.</li>
+        <li>Bộ cài đặt Windows tự động, không yêu cầu cài thêm phần mềm phụ trợ.</li>
+      </ul>
+    </td>
+  </tr>
+</table>
 
 ---
 
-## ✨ Tính năng nổi bật
+## 🚀 Tải Về & Cài Đặt (1 Click)
 
-### 🎧 Trình phát nhạc Offline chuyên nghiệp
-- Hỗ trợ hầu hết các định dạng âm thanh chất lượng cao: **MP3, FLAC, WAV, AAC, OGG, M4A...**
-- Tự động đọc và hiển thị metadata: Tên bài hát, ca sĩ, album, ảnh bìa (Album Art) sử dụng **TagLibSharp**.
-- Quản lý danh sách phát (Playlist), tạo/sửa/xóa playlist theo sở thích.
-- Duyệt nhạc linh hoạt theo thư mục máy tính.
-- Hiển thị sóng âm trực quan thời gian thực (**Spectrogram / Audio Visualizer**).
+Dành cho người dùng trải nghiệm ngay ứng dụng mà không cần biết lập trình:
 
-### 🎚️ Equalizer & Hiệu ứng âm thanh cao cấp
-- Bộ cân bằng âm thanh **10-Band Equalizer** với các preset cài sẵn (Rock, Pop, Jazz, Bass Boost...).
-- Điều chỉnh cao độ (Pitch) và tốc độ phát (Tempo / Speed) chuẩn xác với công nghệ **SoundTouch**.
-
-### ⬇️ Tải nhạc trực tuyến đa nền tảng
-Tích hợp bộ công cụ tải nhạc thông minh:
-- 🔴 **YouTube**: Hỗ trợ tìm kiếm, tải từng bài hoặc tải toàn bộ Playlist với chất lượng âm thanh cao nhất.
-- 🟠 **SoundCloud**: Tải trực tiếp các bản nhạc độc quyền và remix từ SoundCloud.
-- 🟢 **Spotify**: Tải và đồng bộ bài hát / danh sách phát nhanh chóng.
-- ⚫ **TikTok**: Tách âm thanh từ video TikTok xu hướng chỉ với liên kết.
-
-### 💻 Tối ưu hoá cho Windows
-- Bộ cài đặt `.exe` nhỏ gọn, đóng gói với **Inno Setup**.
-- Tự động liên kết đuôi file (`.mp3`, `.flac`, `.wav`) mở bằng FresAudio.
-- Dung lượng nhẹ, khởi động tức thì, hoạt động êm ái trên Windows 10 & 11 (64-bit).
+1. Truy cập vào trang [**Releases của FresAudio**](https://github.com/congthanhapp/FresAudio/releases).
+2. Tải về phiên bản mới nhất: **`FresAudio_Setup.exe`**.
+3. Khởi chạy file vừa tải, làm theo hướng dẫn tiếng Việt của bộ cài và bắt đầu thưởng thức âm nhạc.
 
 ---
 
-## 🚀 Tải về & Cài đặt
+## ⌨️ Phím Tắt Tiện Lợi
 
-Dành cho người dùng thông thường:
-
-1. Vào mục [**Releases**](https://github.com/congtb/FresAudio/releases) (hoặc trang Release của repo).
-2. Tải về file bộ cài đặt mới nhất: `FresAudio_Setup.exe`.
-3. Mở file và tiến hành cài đặt theo hướng dẫn tiếng Việt.
-4. Thưởng thức âm nhạc!
+| Phím Tắt | Chức Năng |
+| :--- | :--- |
+| <kbd>Space</kbd> | Tạm dừng (Pause) / Tiếp tục phát (Play) |
+| <kbd>→</kbd> / <kbd>←</kbd> | Tua nhanh tới / lùi bài hát |
+| <kbd>Ctrl</kbd> + <kbd>→</kbd> | Chuyển sang bài tiếp theo (Next Track) |
+| <kbd>Ctrl</kbd> + <kbd>←</kbd> | Quay lại bài trước (Previous Track) |
+| <kbd>↑</kbd> / <kbd>↓</kbd> | Tăng / giảm âm lượng |
+| <kbd>Ctrl</kbd> + <kbd>O</kbd> | Mở file nhạc từ máy tính |
+| <kbd>Ctrl</kbd> + <kbd>E</kbd> | Bật cửa sổ 10-Band Equalizer |
 
 ---
 
-## 🛠️ Hướng dẫn Build từ mã nguồn (Dành cho Lập trình viên)
+## 🛠️ Hướng Dẫn Dành Cho Lập Trình Viên
 
-### Yêu cầu môi trường
-- Hệ điều hành: **Windows 10 / 11 (x64)**
-- [.NET 8.0 SDK](https://dotnet.microsoft.com/download/dotnet/8.0) trở lên
-- [Visual Studio 2022](https://visualstudio.microsoft.com/) (với workload *.NET Desktop Development*) hoặc [Rider] / [VS Code]
-- (Tùy chọn để tạo file Setup) [Inno Setup 6](https://jrsoftware.org/isdl.php)
+Nếu bạn muốn chỉnh sửa, phát triển thêm tính năng hoặc tự biên dịch ứng dụng từ mã nguồn:
 
-### Các bước chạy dự án
+### 1. Yêu Cầu Cài Đặt
+- Hệ điều hành: **Windows 10 / 11 (64-bit)**
+- **[.NET 8.0 SDK](https://dotnet.microsoft.com/download/dotnet/8.0)**
+- **Visual Studio 2022** (chọn workload *.NET Desktop Development*) hoặc **JetBrains Rider** / **VS Code**
+- **[Inno Setup 6](https://jrsoftware.org/isdl.php)** (dùng để đóng gói file cài đặt `.exe`)
 
-1. **Clone repository:**
-   ```bash
-   git clone https://github.com/<your-username>/FresAudio.git
-   cd FresAudio
-   ```
+### 2. Tải Mã Nguồn & Chạy Dự Án
+```bash
+# Clone repository về máy tính
+git clone https://github.com/congthanhapp/FresAudio.git
+cd FresAudio
 
-2. **Restore dependencies & Build:**
-   ```bash
-   dotnet restore
-   dotnet build -c Debug
-   ```
+# Khôi phục các thư viện NuGet phụ thuộc
+dotnet restore
 
-3. **Chạy ứng dụng:**
-   ```bash
-   dotnet run --project FresAudio.csproj
-   ```
+# Chạy ứng dụng ở chế độ Debug
+dotnet run --project FresAudio.csproj
+```
 
-### Đóng gói Release & Tạo bộ cài Installer
-
+### 3. Đóng Gói Bộ Cài Đặt (Release Setup)
 ```powershell
-# 1. Publish ứng dụng dưới dạng Single-File tự chứa (Self-contained)
+# Bước 1: Publish ứng dụng Single-File độc lập (Self-contained)
 dotnet publish -c Release -r win-x64 --self-contained true -p:PublishSingleFile=true -o PublishApp
 
-# 2. Biên dịch bộ cài đặt Inno Setup
+# Bước 2: Biên dịch bộ cài đặt Inno Setup
 ISCC.exe installer.iss
 ```
-File cài đặt `FresAudio_Setup.exe` sẽ được tạo ra ngay tại thư mục gốc của dự án.
+File cài đặt `FresAudio_Setup.exe` sẽ được tạo ngay trong thư mục gốc.
 
 ---
 
-## ⚖️ Tuyên bố từ chối trách nhiệm (Disclaimer)
+## 🧩 Công Nghệ & Thư Viện Nguồn Mở Sử Dụng
 
-Dự án này được phát triển hoàn toàn vì mục đích **học tập, nghiên cứu kỹ thuật và sử dụng cá nhân**. 
-- Tác giả không lưu trữ bất kỳ tệp nhạc hay nội dung có bản quyền nào trên máy chủ.
-- Tính năng tải nhạc dựa trên các công cụ nguồn mở của bên thứ ba (như `yt-dlp`, `YoutubeExplode`, `SoundCloudExplode`).
-- Người dùng tự chịu trách nhiệm về việc tuân thủ Điều khoản Dịch vụ (Terms of Service) và quyền sở hữu trí tuệ của từng nền tảng trực tuyến khi sử dụng phần mềm.
+FresAudio trân trọng cảm ơn sự đóng góp của cộng đồng mã nguồn mở và các dự án:
+- [NAudio](https://github.com/naudio/NAudio) - Thư viện xử lý và phát âm thanh cốt lõi trên .NET.
+- [SoundTouch.Net](https://github.com/haugen/SoundTouch.Net) - Thuật toán xử lý Tempo & Pitch âm thanh chất lượng cao.
+- [YoutubeExplode](https://github.com/Tyrrrz/YoutubeExplode) & [yt-dlp](https://github.com/yt-dlp/yt-dlp) - Công cụ giải mã luồng video và tải âm thanh YouTube mạnh mẽ.
+- [SoundCloudExplode](https://github.com/Tyrrrz/SoundCloudExplode) - Thư viện tương tác với hệ thống SoundCloud.
+- [TagLibSharp](https://github.com/mono/taglib-sharp) - Đọc và ghi metadata thẻ bài hát.
+- [MaterialDesignInXaml](https://github.com/MaterialDesignInXAML/MaterialDesignInXamlToolkit) - Bộ giao diện Material Design dành cho WPF.
+
+---
+
+## ⚖️ Tuyên Bố Từ Chối Trách Nhiệm (Disclaimer)
+
+- **FresAudio** được phát triển hoàn toàn với mục đích **nghiên cứu kỹ thuật, học tập và phục vụ nhu cầu giải trí cá nhân**.
+- Tác giả **không sở hữu, không lưu trữ và không chịu trách nhiệm** về bất kỳ nội dung âm thanh bản quyền nào được tải thông qua các công cụ của bên thứ ba.
+- Người dùng tự chịu trách nhiệm về việc tuân thủ Điều khoản sử dụng dịch vụ (Terms of Service) và quyền tác giả của từng nền tảng trực tuyến.
 
 ---
 
-## 📄 Bản quyền (License)
+## 📄 Bản Quyền (License)
 
-Dự án được phân phối dưới giấy phép **MIT License**. Xem chi tiết tại file [LICENSE](LICENSE).
-
----
+Dự án được phân phối dưới giấy phép mã nguồn mở [**MIT License**](LICENSE).
 
 <div align="center">
-  Được phát triển bởi <b>Công Thành</b> ❤️
+  <sub>Được thiết kế và phát triển với tất cả tâm huyết bởi <b>Công Thành</b> • 2026</sub>
 </div>
