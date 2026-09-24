@@ -1,0 +1,23 @@
+<?xml version='1.0'?>
+<Obfuscator>
+  <Var name="InPath" value=".\bin\Release\net8.0-windows\win-x64" />
+  <Var name="OutPath" value=".\bin\Release\net8.0-windows\win-x64\obfuscated" />
+  <Var name="KeepPublicApi" value="true" />
+  <Var name="HidePrivateApi" value="true" />
+  <Var name="HideStrings" value="true" />
+  <Var name="ReuseNames" value="true" />
+  <Var name="UseUnicodeNames" value="false" />
+  <Var name="AnalyzeVisualBasicNet" value="false" />
+  <Var name="RegenerateDebugInfo" value="false" />
+
+  <Module file="$(InPath)\FresAudio.dll">
+    <SkipType name="FresAudio.App" />
+    <SkipType name="FresAudio.MainWindow" />
+    <SkipType name="FresAudio.FolderBrowserWindow" />
+    <SkipType name="FresAudio.Youtube.YoutubeDownloadWindow" />
+    <SkipType name="FresAudio.Spotify.SpotifyDownloadWindow" />
+    <SkipType name="FresAudio.Tiktok.TiktokDownloadWindow" />
+    <SkipType name="FresAudio.Soundcloud.SoundcloudDownloadWindow" />
+    <SkipNamespace name="FresAudio.Models" />
+  </Module>
+</Obfuscator>

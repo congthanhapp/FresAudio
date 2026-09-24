@@ -1,0 +1,22 @@
+## Build results
+[Bb]in/
+[Oo]bj/
+PublishApp/
+*.exe
+!Tools/*.exe
+
+## Visual Studio & Rider
+.vs/
+.idea/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+## Agent & IDE
+.agents/
+
+## Logs and temp
+*.log
+*.tmp
+*.bak

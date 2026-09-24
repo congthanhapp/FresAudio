@@ -1,0 +1,17 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <SolidColorBrush x:Key="BgWindow" Color="#B318181b"/>
+    <SolidColorBrush x:Key="BgPanelLeft" Color="#991f1f22"/>
+    <SolidColorBrush x:Key="BgPanel" Color="#9927272a"/>
+    <SolidColorBrush x:Key="TextPrimary" Color="White"/>
+    <SolidColorBrush x:Key="TextSecondary" Color="#a1a1aa"/>
+    <SolidColorBrush x:Key="TextMuted" Color="#71717a"/>
+    <SolidColorBrush x:Key="BorderMain" Color="#403f3f46"/>
+    <SolidColorBrush x:Key="AccentPrimary" Color="#3b82f6"/>
+    <SolidColorBrush x:Key="ControlBg" Color="#803f3f46"/>
+    <SolidColorBrush x:Key="IconCloseFolder" Color="#ef4444"/>
+    <SolidColorBrush x:Key="AppBorder" Color="#803f3f46"/>
+    <SolidColorBrush x:Key="TitleBarBtnHover" Color="#33FFFFFF"/>
+    <SolidColorBrush x:Key="TitleBarBtnPressed" Color="#22FFFFFF"/>
+    <SolidColorBrush x:Key="ItemHoverBg" Color="#1AFFFFFF"/>
+</ResourceDictionary>

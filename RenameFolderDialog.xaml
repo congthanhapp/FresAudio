@@ -1,0 +1,71 @@
+<Window x:Class="FresAudio.RenameFolderDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        Title="Đổi Tên Thư Mục" Height="220" Width="440"
+        WindowStyle="None" AllowsTransparency="True" Background="Transparent"
+        WindowStartupLocation="CenterOwner" MouseLeftButtonDown="Window_MouseLeftButtonDown"
+        ShowInTaskbar="False" Loaded="Window_Loaded">
+    <Border CornerRadius="14" Background="{DynamicResource BgWindow}" ClipToBounds="True" BorderThickness="1" BorderBrush="{DynamicResource AppBorder}">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="46"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="56"/>
+            </Grid.RowDefinitions>
+
+            <!-- Thanh tiêu đề -->
+            <Border Grid.Row="0" Background="{DynamicResource ControlBg}" CornerRadius="13,13,0,0">
+                <Grid Margin="16,0,10,0">
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                        <materialDesign:PackIcon Kind="FolderEditOutline" Foreground="{DynamicResource AccentPrimary}" Width="20" Height="20" VerticalAlignment="Center"/>
+                        <TextBlock Text="ĐỔI TÊN THƯ MỤC" Foreground="{DynamicResource TextPrimary}" 
+                                   FontWeight="SemiBold" FontSize="14" VerticalAlignment="Center" Margin="8,0,0,0"/>
+                    </StackPanel>
+                    
+                    <Button HorizontalAlignment="Right" VerticalAlignment="Center"
+                            ToolTip="Đóng (Esc)" Click="BtnCancel_Click"
+                            Width="30" Height="30" Padding="0"
+                            Style="{StaticResource MaterialDesignIconForegroundButton}"
+                            Foreground="{DynamicResource TextSecondary}">
+                        <materialDesign:PackIcon Kind="Close" Width="18" Height="18"/>
+                    </Button>
+                </Grid>
+            </Border>
+
+            <!-- Nội dung nhập tên -->
+            <StackPanel Grid.Row="1" Margin="20,14,20,10">
+                <TextBlock x:Name="txtFolderPath" Text="Vị trí: ..." Foreground="{DynamicResource TextSecondary}" FontSize="12" Margin="0,0,0,8" TextTrimming="CharacterEllipsis"/>
+                
+                <TextBox x:Name="txtFolderName"
+                         materialDesign:HintAssist.Hint="Nhập tên thư mục mới"
+                         materialDesign:HintAssist.Foreground="{DynamicResource TextSecondary}"
+                         FontSize="14" Padding="6,6"
+                         Foreground="{DynamicResource TextPrimary}"
+                         CaretBrush="{DynamicResource TextPrimary}"
+                         KeyDown="TxtFolderName_KeyDown"/>
+            </StackPanel>
+
+            <!-- Nút điều khiển -->
+            <Border Grid.Row="2" Background="{DynamicResource ControlBg}" CornerRadius="0,0,13,13" Padding="16,0">
+                <Grid VerticalAlignment="Center">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    
+                    <Button Grid.Column="1" Content="HỦY" Width="85" Height="34" Margin="0,0,10,0"
+                            Style="{StaticResource MaterialDesignOutlinedButton}"
+                            materialDesign:ButtonAssist.CornerRadius="6"
+                            Foreground="{DynamicResource TextPrimary}" BorderBrush="{DynamicResource BorderMain}" Click="BtnCancel_Click"/>
+                    
+                    <Button Grid.Column="2" Content="LƯU TÊN" Width="110" Height="34"
+                            Style="{StaticResource MaterialDesignRaisedButton}"
+                            materialDesign:ButtonAssist.CornerRadius="6"
+                            Background="{DynamicResource AccentPrimary}" Foreground="White" Click="BtnConfirm_Click"/>
+                </Grid>
+            </Border>
+        </Grid>
+    </Border>
+</Window>
