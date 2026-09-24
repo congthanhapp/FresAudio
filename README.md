@@ -1,6 +1,12 @@
-# 🎵 FresAudio
+<div align="center">
+
+<img src="FresAudio.png" alt="FresAudio Logo" width="100" height="100" />
+
+# FresAudio
 
 Ứng dụng phát nhạc offline trên máy tính Windows, hỗ trợ tải nhạc từ YouTube, SoundCloud, Spotify và TikTok về máy.
+
+</div>
 
 ---
 
@@ -20,6 +26,8 @@
 
 ---
 
-## 📌 Lưu ý
+## ⚖️ Miễn trừ trách nhiệm (Disclaimer)
 
-Ứng dụng được phát triển phục vụ mục đích học tập, nghiên cứu và sử dụng cá nhân. Tính năng tải nhạc sử dụng các công cụ mã nguồn mở của bên thứ ba, người dùng vui lòng tuân thủ điều khoản sử dụng của từng nền tảng trực tuyến.
+Ứng dụng được phát triển phục vụ mục đích học tập, nghiên cứu và sử dụng cá nhân.
+- Tính năng tải nhạc sử dụng các công cụ mã nguồn mở của bên thứ ba.
+- Người dùng tự chịu trách nhiệm về việc tuân thủ Điều khoản dịch vụ và quyền tác giả của từng nền tảng trực tuyến khi sử dụng phần mềm.
