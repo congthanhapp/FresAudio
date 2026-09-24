@@ -2,20 +2,20 @@
 
 # 🎵 FresAudio
 
-### Ứng dụng Nghe Nhạc & Tải Nhạc Đa Nền Tảng Chuyên Nghiệp Cho Windows
+### Phần mềm phát nhạc offline trên máy tính & hỗ trợ tải nhạc
 
 <p align="center">
-  <a href="https://dotnet.microsoft.com/download/dotnet/8.0"><img src="https://img.shields.io/badge/.NET-8.0_WPF-512BD4?style=for-the-badge&logo=dotnet&logoColor=white" alt=".NET 8" /></a>
-  <a href="https://www.microsoft.com/windows"><img src="https://img.shields.io/badge/Platform-Windows_10_|_11-0078D4?style=for-the-badge&logo=windows&logoColor=white" alt="Platform Windows" /></a>
+  <a href="https://dotnet.microsoft.com/download/dotnet/8.0"><img src="https://img.shields.io/badge/.NET-8.0-512BD4?style=for-the-badge&logo=dotnet&logoColor=white" alt=".NET 8" /></a>
+  <a href="https://www.microsoft.com/windows"><img src="https://img.shields.io/badge/Platform-Windows-0078D4?style=for-the-badge&logo=windows&logoColor=white" alt="Platform Windows" /></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-success?style=for-the-badge" alt="License MIT" /></a>
   <a href="https://github.com/congthanhapp/FresAudio/releases"><img src="https://img.shields.io/badge/Download-FresAudio__Setup.exe-FF5722?style=for-the-badge&logo=windows-terminal&logoColor=white" alt="Download" /></a>
 </p>
 
-<img src="FresAudio.png" alt="FresAudio Logo" width="130" height="130" style="border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.3);" />
+<img src="FresAudio.png" alt="FresAudio Logo" width="120" height="120" />
 
 <br/>
 
-**FresAudio** kết hợp sức mạnh xử lý âm thanh kỹ thuật số cao cấp cùng bộ công cụ tải nhạc trực tuyến thông minh từ **YouTube, SoundCloud, Spotify và TikTok** trong một giao diện Fluent / Material Design tuyệt đẹp.
+**FresAudio** là ứng dụng nghe nhạc cục bộ (offline) trên máy tính Windows, tích hợp bộ cân bằng âm thanh Equalizer và tính năng hỗ trợ tải nhạc từ **YouTube, SoundCloud, Spotify, TikTok** về máy để nghe lại thuận tiện.
 
 [Tính Năng](#-tính-năng-chính) • [Tải Về Cài Đặt](#-tải-về--cài-đặt-1-click) • [Phím Tắt](#-phím-tắt-tiện-lợi) • [Hướng Dẫn Build](#-hướng-dẫn-dành-cho-lập-trình-viên) • [Miễn Trừ Trách Nhiệm](#-tuyên-bố-từ-chối-trách-nhiệm-disclaimer)
 
@@ -28,9 +28,9 @@
 <table>
   <tr>
     <td width="50%">
-      <h3>🎧 Trình Phát Âm Thanh Hi-Res</h3>
+      <h3>🎧 Phát Nhạc Offline (Cục Bộ)</h3>
       <ul>
-        <li>Hỗ trợ phát đa định dạng: <b>FLAC 24-bit, MP3, WAV, AAC, OGG, M4A...</b></li>
+        <li>Hỗ trợ phát các định dạng phổ biến: <b>MP3, FLAC, WAV, AAC, OGG, M4A...</b></li>
         <li>Tự động đọc <b>Metadata ID3v2</b>, ảnh bìa album (Album Cover Art) sắc nét.</li>
         <li>Quản lý danh sách phát (Playlist), tạo thư mục bài hát yêu thích không giới hạn.</li>
         <li>Duyệt nhạc theo cấu trúc cây thư mục ổ đĩa cực nhanh.</li>
@@ -48,9 +48,9 @@
   </tr>
   <tr>
     <td width="50%">
-      <h3>⬇️ Bộ Tải Nhạc Đa Nền Tảng</h3>
+      <h3>⬇️ Hỗ Trợ Tải Nhạc Về Máy</h3>
       <ul>
-        <li>🔴 <b>YouTube:</b> Tải bài hát hoặc nguyên Playlist, tự động gắn thẻ ca sĩ/album.</li>
+        <li>🔴 <b>YouTube:</b> Tải bài hát hoặc Playlist về máy, tự động lưu thông tin bài hát.</li>
         <li>🟠 <b>SoundCloud:</b> Tải nhanh các bản nhạc độc quyền, DJ Mix & Remix.</li>
         <li>🟢 <b>Spotify:</b> Tìm kiếm và tải bài hát/playlist yêu thích về máy.</li>
         <li>⚫ <b>TikTok:</b> Tách nhạc nền cực chuẩn từ video TikTok theo link.</li>
