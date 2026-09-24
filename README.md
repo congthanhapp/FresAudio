@@ -23,18 +23,12 @@
 
 ---
 
-## 🎬 Video Demo
+## 🎬 Video sử dụng
 
 <p align="center">
   <video src="demo.mp4" controls="controls" width="100%"></video>
 </p>
-
-
-
-https://github.com/user-attachments/assets/11010fae-0574-43a5-a407-e54bd753f684
-
-
-
+https://github.com/user-attachments/assets/5b589ae4-3e96-41b0-acb7-ec59277aae5a
 ---
 
 ## ✨ Tính năng chính
