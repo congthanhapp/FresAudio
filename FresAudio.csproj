@@ -21,10 +21,6 @@
   <ItemGroup>
     <PackageReference Include="MaterialDesignThemes" Version="5.3.2" />
     <PackageReference Include="NAudio" Version="2.3.0" />
-    <PackageReference Include="Obfuscar" Version="2.2.50">
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-      <PrivateAssets>all</PrivateAssets>
-    </PackageReference>
     <PackageReference Include="SoundCloudExplode" Version="1.6.7" />
     <PackageReference Include="SoundTouch.Net" Version="2.3.2" />
     <PackageReference Include="TagLibSharp" Version="2.3.0" />
@@ -39,13 +35,5 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </None>
   </ItemGroup>
-
-  <Target Name="ObfuscateBeforePublish" BeforeTargets="GenerateSingleFileBundle" Condition="'$(Configuration)' == 'Release'">
-    <Message Importance="High" Text="[OBFUSCATION] Running Obfuscar on Release assembly..." />
-    <Exec Command="obfuscar.console &quot;$(ProjectDir)obfuscar.xml&quot;" />
-    <Copy SourceFiles="$(ProjectDir)bin\Release\net8.0-windows\win-x64\obfuscated\FresAudio.dll" DestinationFiles="$(IntermediateOutputPath)FresAudio.dll" />
-    <Copy SourceFiles="$(ProjectDir)bin\Release\net8.0-windows\win-x64\obfuscated\FresAudio.dll" DestinationFiles="$(TargetDir)FresAudio.dll" />
-    <Message Importance="High" Text="[OBFUSCATION] Obfuscated assembly successfully injected!" />
-  </Target>
 
 </Project>

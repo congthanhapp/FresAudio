@@ -1416,6 +1416,26 @@ namespace FresAudio
             }
         }
 
+        private ListBoxItem FindParentListBoxItem(DependencyObject dep)
+        {
+            if (dep == null) return null;
+            var container = ItemsControl.ContainerFromElement(lstPlaylist, dep) as ListBoxItem;
+            if (container != null) return container;
+
+            while (dep != null && dep != lstPlaylist && !(dep is ListBoxItem))
+            {
+                if (dep is Visual || dep is System.Windows.Media.Media3D.Visual3D)
+                {
+                    dep = VisualTreeHelper.GetParent(dep);
+                }
+                else
+                {
+                    dep = LogicalTreeHelper.GetParent(dep);
+                }
+            }
+            return dep as ListBoxItem;
+        }
+
         private void LstPlaylist_PreviewMouseRightButtonDown(object sender, MouseButtonEventArgs e)
         {
             if (_selectedTab != null && _selectedTab.IsCustomPlaylist)
@@ -1424,12 +1444,8 @@ namespace FresAudio
                 return;
             }
 
-            var dep = e.OriginalSource as DependencyObject;
-            while (dep != null && !(dep is ListBoxItem))
-            {
-                dep = VisualTreeHelper.GetParent(dep);
-            }
-            if (dep is ListBoxItem item && item.DataContext is PlaylistItem pItem)
+            var item = FindParentListBoxItem(e.OriginalSource as DependencyObject);
+            if (item != null && item.DataContext is PlaylistItem pItem)
             {
                 _isRightClicking = true;
                 try
@@ -1440,6 +1456,11 @@ namespace FresAudio
                 {
                     _isRightClicking = false;
                 }
+            }
+            else
+            {
+                // Nhấp chuột phải vào khoảng trống (không thuộc bài hát nào) -> Ngăn mở menu chuột phải
+                e.Handled = true;
             }
         }
 
@@ -3071,23 +3092,45 @@ namespace FresAudio
                 return;
             }
 
-            var selectedItem = lstPlaylist.SelectedItem as PlaylistItem;
-            if (selectedItem == null && e.OriginalSource is DependencyObject dep)
+            bool isKeyboard = e.CursorLeft < 0 && e.CursorTop < 0;
+            if (isKeyboard)
             {
-                var listBoxItem = ItemsControl.ContainerFromElement(lstPlaylist, dep) as ListBoxItem;
-                if (listBoxItem?.DataContext is PlaylistItem pItem)
+                if (!(lstPlaylist.SelectedItem is PlaylistItem))
                 {
-                    selectedItem = pItem;
-                    _isRightClicking = true;
-                    try
+                    e.Handled = true;
+                    return;
+                }
+            }
+            else
+            {
+                var item = FindParentListBoxItem(e.OriginalSource as DependencyObject);
+                if (item != null && item.DataContext is PlaylistItem pItem)
+                {
+                    if (lstPlaylist.SelectedItem != pItem)
                     {
-                        lstPlaylist.SelectedItem = pItem;
-                    }
-                    finally
-                    {
-                        _isRightClicking = false;
+                        _isRightClicking = true;
+                        try
+                        {
+                            lstPlaylist.SelectedItem = pItem;
+                        }
+                        finally
+                        {
+                            _isRightClicking = false;
+                        }
                     }
                 }
+                else
+                {
+                    // Chuột phải vào khoảng trống danh sách -> Chặn không hiển thị menu
+                    e.Handled = true;
+                    return;
+                }
+            }
+
+            if (!(lstPlaylist.SelectedItem is PlaylistItem))
+            {
+                e.Handled = true;
+                return;
             }
 
             if (menuRemoveFromCurrentPlaylist != null)
