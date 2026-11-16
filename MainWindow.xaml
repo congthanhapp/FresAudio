@@ -1130,7 +1130,7 @@
 
                             <!-- Volume Slider -->
                             <materialDesign:PackIcon Kind="VolumeHigh" Width="20" Height="20" Foreground="{DynamicResource TextSecondary}" Margin="0,0,5,0" VerticalAlignment="Center"/>
-                            <Slider x:Name="sliderVolume" Width="100" Minimum="0" Maximum="100" Value="50" Cursor="Hand"
+                            <Slider x:Name="sliderVolume" Width="100" Minimum="0" Maximum="100" Value="100" Cursor="Hand"
                                     Foreground="{DynamicResource AccentPrimary}" VerticalAlignment="Center"
                                     materialDesign:SliderAssist.OnlyShowFocusVisualWhileDragging="True" ValueChanged="SliderVolume_ValueChanged">
                                 <Slider.Resources>
@@ -1143,7 +1143,7 @@
                                     </Style>
                                 </Slider.Resources>
                             </Slider>
-                            <TextBlock x:Name="txtVolumePercent" Text="50%" Foreground="{DynamicResource TextSecondary}" FontSize="13" Margin="5,0,0,0" Width="35" TextAlignment="Right" VerticalAlignment="Center"/>
+                            <TextBlock x:Name="txtVolumePercent" Text="100%" Foreground="{DynamicResource TextSecondary}" FontSize="13" Margin="5,0,0,0" Width="35" TextAlignment="Right" VerticalAlignment="Center"/>
                         </StackPanel>
                     </Grid>
                 </Grid>

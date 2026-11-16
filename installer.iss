@@ -1,7 +1,9 @@
 [Setup]
 SetupIconFile=FresAudio.ico
 AppName=FresAudio
-AppVerName=FresAudio
+AppVersion=2.0.0
+AppVerName=FresAudio v2.0.0
+VersionInfoVersion=2.0.0.0
 AppPublisher=Công Thành
 AppCopyright=Copyright © 2026 Công Thành
 DefaultDirName={autopf}\FresAudio

@@ -8,6 +8,7 @@ namespace FresAudio.Models
         public HashSet<string> RemovedSongs { get; set; } = new HashSet<string>(System.StringComparer.OrdinalIgnoreCase);
         public bool IsDarkMode { get; set; } = true;
         public int ThemeMode { get; set; } = 1; // 0: Light, 1: Dark, 2: Transparent
+        public double Volume { get; set; } = 100;
         public bool IsShuffle { get; set; } = false;
         public int RepeatMode { get; set; } = 0; // 0: Off, 1: All, 2: One
         public List<CustomPlaylist> CustomPlaylists { get; set; } = new List<CustomPlaylist>();

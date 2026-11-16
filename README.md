@@ -16,7 +16,7 @@
 
 **FresAudio** là ứng dụng nghe nhạc cục bộ (offline) trên máy tính Windows, hỗ trợ tải nhạc từ **YouTube, SoundCloud, Spotify, TikTok** về máy để nghe lại thuận tiện.
 
-[Tính Năng](#-tính-năng-chính) • [Tải Về](#-tải-về--cài-đặt) • [Miễn Trừ Trách Nhiệm](#-miễn-trừ-trách-nhiệm-disclaimer)
+[Tính Năng](#-tính-năng-chính) • [Cập Nhật v2.0](#-nhật-ký-cập-nhật) • [Tải Về](#-tải-về--cài-đặt) • [Miễn Trừ Trách Nhiệm](#-miễn-trừ-trách-nhiệm-disclaimer)
 
 </div>
 
@@ -41,7 +41,23 @@ https://github.com/user-attachments/assets/5b589ae4-3e96-41b0-acb7-ec59277aae5a
 - **Phát nhạc offline:** Hỗ trợ các định dạng âm thanh phổ biến như MP3, FLAC, WAV, AAC, M4A...
 - **Tải nhạc về máy:** Hỗ trợ tải bài hát từ YouTube, SoundCloud, Spotify và TikTok.
 - **Chỉnh EQ & Xem phổ nhạc:** Tích hợp bộ cân bằng âm thanh (Equalizer) và hiển thị dải phổ sóng âm trực quan.
+- **Điều khiển Bluetooth & Media Keys:** Hỗ trợ đầy đủ nút bấm từ loa/tai nghe Bluetooth và phím đa phương tiện trên Windows (Phát/Tạm dừng, Chuyển bài, Tăng/Giảm âm lượng), hiển thị thông tin bài hát và ảnh bìa trên Media Overlay / Lock Screen của Windows.
 - **Quản lý danh sách phát:** Tạo playlist, lưu bài hát yêu thích và duyệt nhạc theo thư mục.
+
+---
+
+## 📝 Nhật ký cập nhật
+
+### v2.0.0 (Bản 2.0)
+- **Mới:** Tích hợp **Windows System Media Transport Controls (SMTC)** — điều khiển Phát / Tạm dừng / Chuyển bài / Dừng trực tiếp từ loa, tai nghe Bluetooth và phím media ngay cả khi thu nhỏ hoặc chạy ngầm; đồng bộ hiển thị tên bài hát, nghệ sĩ, ảnh bìa và tiến trình lên Windows Media Overlay & Lock Screen.
+- **Mới:** Hỗ trợ bắt thông điệp `WM_APPCOMMAND` để tăng/giảm âm lượng (`+5%`/`-5%`), tắt tiếng (Mute) và điều khiển phát nhạc bằng phím cứng từ loa Bluetooth hoặc bàn phím đa phương tiện.
+- **Cải tiến:** Lưu tự động mức âm lượng giữa các phiên sử dụng và đặt mặc định ban đầu ở mức `100%` (thay vì `50%`).
+- **Sửa lỗi:** Khắc phục lỗi mở app lần đầu thanh âm lượng ở mức tối đa (`100%`) nhưng số hiển thị vẫn báo `50%` cho đến khi kéo tay.
+- **Sửa lỗi:** Chặn mở menu chuột phải khi nhấp vào khoảng trống trong danh sách phát.
+- **Cải tiến đóng gói:** Nâng cấp mục tiêu Windows SDK (`net8.0-windows10.0.19041.0`) và loại bỏ Obfuscar để ứng dụng chạy ổn định hơn.
+
+### v1.0.0
+- Phiên bản phát hành chính thức đầu tiên cho Windows.
 
 ---
 

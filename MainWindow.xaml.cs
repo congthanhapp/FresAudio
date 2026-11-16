@@ -28,6 +28,20 @@ namespace FresAudio
         private SettingsService settingsService;
         private PlaylistService playlistService;
         private AudioPlayerService audioPlayerService;
+        private SmtcService _smtcService;
+        private double _lastVolumeBeforeMute = 50;
+        private int _lastSmtcUpdateSecond = -1;
+
+        private const int WM_APPCOMMAND = 0x0319;
+        private const int APPCOMMAND_VOLUME_MUTE = 8;
+        private const int APPCOMMAND_VOLUME_DOWN = 9;
+        private const int APPCOMMAND_VOLUME_UP = 10;
+        private const int APPCOMMAND_MEDIA_NEXTTRACK = 11;
+        private const int APPCOMMAND_MEDIA_PREVIOUSTRACK = 12;
+        private const int APPCOMMAND_MEDIA_STOP = 13;
+        private const int APPCOMMAND_MEDIA_PLAY_PAUSE = 14;
+        private const int APPCOMMAND_MEDIA_PLAY = 46;
+        private const int APPCOMMAND_MEDIA_PAUSE = 47;
 
         private int currentSongIndex = -1;
         private int currentPlayRequestId = 0;
@@ -82,6 +96,58 @@ namespace FresAudio
                 : new SolidColorBrush((Color)ColorConverter.ConvertFromString("#a1a1aa"));
                 
             UpdateRepeatIcon();
+
+            _smtcService = new SmtcService();
+            _smtcService.PlayRequested += () => Dispatcher.Invoke(() =>
+            {
+                if (audioPlayerService.HasAudio && !audioPlayerService.IsPlaying)
+                {
+                    BtnPlayPause_Click(this, new RoutedEventArgs());
+                }
+                else if (!audioPlayerService.HasAudio && playlistService.PlaylistPaths.Count > 0)
+                {
+                    BtnPlayPause_Click(this, new RoutedEventArgs());
+                }
+            });
+
+            _smtcService.PauseRequested += () => Dispatcher.Invoke(() =>
+            {
+                if (audioPlayerService.IsPlaying)
+                {
+                    BtnPlayPause_Click(this, new RoutedEventArgs());
+                }
+            });
+
+            _smtcService.NextRequested += () => Dispatcher.Invoke(() =>
+            {
+                BtnNext_Click(this, new RoutedEventArgs());
+            });
+
+            _smtcService.PreviousRequested += () => Dispatcher.Invoke(() =>
+            {
+                BtnPrev_Click(this, new RoutedEventArgs());
+            });
+
+            _smtcService.StopRequested += () => Dispatcher.Invoke(() =>
+            {
+                if (audioPlayerService.IsPlaying)
+                {
+                    BtnPlayPause_Click(this, new RoutedEventArgs());
+                }
+            });
+
+            double initialVol = settingsService.CurrentSettings != null 
+                ? Math.Clamp(settingsService.CurrentSettings.Volume, 0, 100) 
+                : 100;
+            sliderVolume.Value = initialVol;
+            if (txtVolumePercent != null)
+            {
+                txtVolumePercent.Text = $"{(int)initialVol}%";
+            }
+            if (audioPlayerService != null)
+            {
+                audioPlayerService.Volume = (float)(initialVol / 100.0);
+            }
         }
 
         private async void LoadInitialData()
@@ -203,8 +269,11 @@ namespace FresAudio
         protected override void OnSourceInitialized(EventArgs e)
         {
             base.OnSourceInitialized(e);
-            HwndSource source = HwndSource.FromHwnd(new WindowInteropHelper(this).Handle);
+            IntPtr handle = new WindowInteropHelper(this).Handle;
+            HwndSource source = HwndSource.FromHwnd(handle);
             source?.AddHook(new HwndSourceHook(WndProc));
+
+            _smtcService?.Initialize(handle);
         }
 
         private IntPtr WndProc(IntPtr hwnd, int msg, IntPtr wParam, IntPtr lParam, ref bool handled)
@@ -218,7 +287,107 @@ namespace FresAudio
                 WmGetMinMaxInfo(hwnd, lParam);
                 handled = true;
             }
+            else if (msg == WM_APPCOMMAND)
+            {
+                int cmd = (int)((lParam.ToInt64() >> 16) & 0xFFF);
+                switch (cmd)
+                {
+                    case APPCOMMAND_VOLUME_UP:
+                        Dispatcher.Invoke(() =>
+                        {
+                            sliderVolume.Value = Math.Min(100, sliderVolume.Value + 5);
+                        });
+                        handled = true;
+                        return (IntPtr)1;
+
+                    case APPCOMMAND_VOLUME_DOWN:
+                        Dispatcher.Invoke(() =>
+                        {
+                            sliderVolume.Value = Math.Max(0, sliderVolume.Value - 5);
+                        });
+                        handled = true;
+                        return (IntPtr)1;
+
+                    case APPCOMMAND_VOLUME_MUTE:
+                        Dispatcher.Invoke(() =>
+                        {
+                            ToggleMute();
+                        });
+                        handled = true;
+                        return (IntPtr)1;
+
+                    case APPCOMMAND_MEDIA_PLAY_PAUSE:
+                        Dispatcher.Invoke(() =>
+                        {
+                            BtnPlayPause_Click(this, new RoutedEventArgs());
+                        });
+                        handled = true;
+                        return (IntPtr)1;
+
+                    case APPCOMMAND_MEDIA_PLAY:
+                        Dispatcher.Invoke(() =>
+                        {
+                            if (!audioPlayerService.IsPlaying)
+                            {
+                                BtnPlayPause_Click(this, new RoutedEventArgs());
+                            }
+                        });
+                        handled = true;
+                        return (IntPtr)1;
+
+                    case APPCOMMAND_MEDIA_PAUSE:
+                        Dispatcher.Invoke(() =>
+                        {
+                            if (audioPlayerService.IsPlaying)
+                            {
+                                BtnPlayPause_Click(this, new RoutedEventArgs());
+                            }
+                        });
+                        handled = true;
+                        return (IntPtr)1;
+
+                    case APPCOMMAND_MEDIA_STOP:
+                        Dispatcher.Invoke(() =>
+                        {
+                            if (audioPlayerService.IsPlaying)
+                            {
+                                BtnPlayPause_Click(this, new RoutedEventArgs());
+                            }
+                        });
+                        handled = true;
+                        return (IntPtr)1;
+
+                    case APPCOMMAND_MEDIA_NEXTTRACK:
+                        Dispatcher.Invoke(() =>
+                        {
+                            BtnNext_Click(this, new RoutedEventArgs());
+                        });
+                        handled = true;
+                        return (IntPtr)1;
+
+                    case APPCOMMAND_MEDIA_PREVIOUSTRACK:
+                        Dispatcher.Invoke(() =>
+                        {
+                            BtnPrev_Click(this, new RoutedEventArgs());
+                        });
+                        handled = true;
+                        return (IntPtr)1;
+                }
+            }
             return IntPtr.Zero;
+        }
+
+        private void ToggleMute()
+        {
+            if (sliderVolume.Value > 0)
+            {
+                _lastVolumeBeforeMute = sliderVolume.Value;
+                sliderVolume.Value = 0;
+            }
+            else
+            {
+                sliderVolume.Value = _lastVolumeBeforeMute > 0 ? _lastVolumeBeforeMute : 50;
+            }
         }
 
         private void WmGetMinMaxInfo(IntPtr hwnd, IntPtr lParam)
@@ -1571,6 +1740,7 @@ namespace FresAudio
                     visualizerTimer.Stop();
                     iconPlayPause.Kind = PackIconKind.Play;
                     UpdateFolderTabsIsPlaying();
+                    _smtcService?.SetPlaybackStatus(Windows.Media.MediaPlaybackStatus.Paused);
                 }
                 else
                 {
@@ -1582,6 +1752,7 @@ namespace FresAudio
                     visualizerTimer.Start();
                     iconPlayPause.Kind = PackIconKind.Pause;
                     UpdateFolderTabsIsPlaying();
+                    _smtcService?.SetPlaybackStatus(Windows.Media.MediaPlaybackStatus.Playing);
                 }
             }
         }
@@ -1881,6 +2052,10 @@ namespace FresAudio
             {
                 txtVolumePercent.Text = $"{(int)e.NewValue}%";
             }
+            if (settingsService?.CurrentSettings != null)
+            {
+                settingsService.CurrentSettings.Volume = e.NewValue;
+            }
         }
 
         private void SliderTimeline_DragStarted(object sender, System.Windows.Controls.Primitives.DragStartedEventArgs e)
@@ -2018,6 +2193,9 @@ namespace FresAudio
                         txtTotalTime.Text = audioPlayerService.TotalTime.ToString(@"mm\:ss");
                         visualizerTimer.Start();
                         UpdateFolderTabsIsPlaying();
+
+                        _smtcService?.SetPlaybackStatus(Windows.Media.MediaPlaybackStatus.Playing);
+                        _smtcService?.UpdateTimeline(TimeSpan.Zero, audioPlayerService.TotalTime);
                     });
                 }
                 catch (Exception ex)
@@ -2042,6 +2220,11 @@ namespace FresAudio
             if (txtSampleRate != null) txtSampleRate.Text = "--- kHz";
             if (txtFileSize != null) txtFileSize.Text = "--- MB";
 
+            byte[]? coverBytes = null;
+            string curTitle = txtTitle.Text;
+            string curArtist = txtArtist.Text;
+            string curAlbum = "";
+
             try
             {
                 using (var tfile = TagLib.File.Create(file))
@@ -2051,6 +2234,10 @@ namespace FresAudio
                     
                     if (tfile.Tag.Performers.Length > 0)
                         txtArtist.Text = string.Join(", ", tfile.Tag.Performers);
+
+                    curTitle = txtTitle.Text;
+                    curArtist = txtArtist.Text;
+                    curAlbum = tfile.Tag.Album ?? "";
 
                     if (tfile.Properties != null)
                     {
@@ -2071,6 +2258,7 @@ namespace FresAudio
                     if (tfile.Tag.Pictures.Length > 0)
                     {
                         var pic = tfile.Tag.Pictures[0];
+                        coverBytes = pic.Data.Data;
                         using (MemoryStream ms = new MemoryStream(pic.Data.Data))
                         {
                             var bitmap = new System.Windows.Media.Imaging.BitmapImage();
@@ -2085,6 +2273,8 @@ namespace FresAudio
                 }
             }
             catch { }
+
+            _ = _smtcService?.UpdateMetadataAsync(curTitle, curArtist, curAlbum, coverBytes);
         }
 
         private void StopSong()
@@ -2101,6 +2291,7 @@ namespace FresAudio
             audioPlayerService.Stop();
             _playbackTab = null;
             UpdateFolderTabsIsPlaying();
+            _smtcService?.SetPlaybackStatus(Windows.Media.MediaPlaybackStatus.Stopped);
         }
 
         private void AudioPlayerService_DefaultDeviceChanged(object sender, EventArgs e)
@@ -2117,6 +2308,7 @@ namespace FresAudio
                         if (wasPlaying)
                         {
                             audioPlayerService.Play();
+                            _smtcService?.SetPlaybackStatus(Windows.Media.MediaPlaybackStatus.Playing);
                         }
                     }
                 }
@@ -2174,6 +2366,7 @@ namespace FresAudio
                         }
                         
                         audioPlayerService.Play();
+                        _smtcService?.SetPlaybackStatus(Windows.Media.MediaPlaybackStatus.Playing);
                     }
                     catch { }
                 }));
@@ -2243,6 +2436,13 @@ namespace FresAudio
                     sliderTimeline.ValueChanged += SliderTimeline_ValueChanged;
                     
                     txtCurrentTime.Text = currentTime.ToString(@"mm\:ss");
+
+                    int currentSec = (int)currentTime.TotalSeconds;
+                    if (currentSec != _lastSmtcUpdateSecond)
+                    {
+                        _lastSmtcUpdateSecond = currentSec;
+                        _smtcService?.UpdateTimeline(currentTime, audioPlayerService.TotalTime);
+                    }
                 }
                 catch { }
             }
@@ -2304,6 +2504,7 @@ namespace FresAudio
                 StopSleepTimer();
                 audioPlayerService.Pause();
                 iconPlayPause.Kind = PackIconKind.Play;
+                _smtcService?.SetPlaybackStatus(Windows.Media.MediaPlaybackStatus.Paused);
             }
         }
 
@@ -3519,6 +3720,22 @@ namespace FresAudio
             {
                 OpenSpectrogramWindow();
             }
+        }
+
+        protected override void OnClosed(EventArgs e)
+        {
+            base.OnClosed(e);
+            try
+            {
+                if (settingsService?.CurrentSettings != null)
+                {
+                    settingsService.CurrentSettings.Volume = sliderVolume.Value;
+                    settingsService.SaveSettings();
+                }
+            }
+            catch { }
+            try { _smtcService?.Dispose(); } catch { }
+            try { audioPlayerService?.Dispose(); } catch { }
         }
     }
 }
